@@ -1,2 +1,2 @@
 # figscrape
-Scraper for action figure prices in Portugal
+Scraper for action figure prices in Europe
