@@ -1,7 +1,7 @@
-from typing import List, Type
+from typing import Type, Dict
 
 from .item import StoreItem
 from .scraper import _ScraperInterface
 from .tsubaki import TsubakiScraper
 
-scrapers: List[Type[_ScraperInterface]] = [TsubakiScraper]
+scrapers: Dict[str, Type[_ScraperInterface]] = {TsubakiScraper.get_short_name(): TsubakiScraper}
