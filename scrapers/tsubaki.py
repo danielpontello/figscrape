@@ -3,16 +3,20 @@ from typing import List
 import requests
 from bs4 import BeautifulSoup
 
-from scrapers.item import StoreItem
-from scrapers.scraper import ScraperInterface
+from .item import StoreItem
+from .scraper import _ScraperInterface
 
 base_url = "https://www.tsubaki.pt/pesquisa?controller=search&s={query}"
 
 
-class TsubakiScraper(ScraperInterface):
+class TsubakiScraper(_ScraperInterface):
     def scrape(self, search_term: str) -> List[StoreItem]:
         start_page = self.get_page(base_url.format(query=search_term))
         self.extract_data(start_page)
+
+    @staticmethod
+    def get_short_name() -> str:
+        return 'tsubaki'
 
     def get_page(self, url: str) -> str:
         req = requests.get(url, verify=False)
