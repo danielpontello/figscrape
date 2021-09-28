@@ -1,5 +1,3 @@
-import pandas
-
 from scrapers.tsubaki import TsubakiScraper
 
 
