@@ -13,3 +13,7 @@ class _ScraperInterface(ABC):
     @abstractmethod
     def scrape(self, search_term: str) -> List[StoreItem]:
         raise NotImplementedError
+
+
+class ScraperError(BaseException):
+    pass
